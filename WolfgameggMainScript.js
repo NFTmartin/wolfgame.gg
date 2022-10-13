@@ -25,7 +25,7 @@ community.addEventListener("change", function(){
 });
 
 //detect search input change
-searchbox.addEventListener("change", function(){ 
+searchbox.addEventListener("input", function(){ 
     console.log('community changed to:' + community.value)
     getLandData(community.value)
 });
@@ -291,7 +291,7 @@ function getLandData(communityNumber) {
     // Send Restaurant request to API
     request.send();
 }
-// github test v10
+// github test v11
 
 (function() {
     setNewUrl ();
