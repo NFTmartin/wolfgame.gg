@@ -196,7 +196,7 @@
 
                     // add card to map
                     landDataContainer.appendChild(datacard);
-                    landDataContainer.appendChild(colorcard);
+                    landColorContainer.appendChild(colorcard);
                 })
             }
         }
@@ -205,7 +205,7 @@
         request.send();
     }
     // github test v3
-    
+
    (function() {
         setNewUrl ();
         getLandData(community_value);  
