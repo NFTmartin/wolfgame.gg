@@ -151,7 +151,7 @@ function getLandData(communityNumber) {
 
                 clicked_id = landID.tokenId;
 
-                // When a restuarant card is clicked, navigate to the item page by passing the restaurant id
+                // action when land is pressed
                 datacard.addEventListener('click', function() {
                     console.log(landID.tokenId)
                     //let cID = String(landID.tokenId);
@@ -159,7 +159,16 @@ function getLandData(communityNumber) {
                     clicked_id = landID.tokenId;
                     console.log(clicked_id);
                     setNewUrl ();
-                });              
+                });  
+                
+                colorcard.addEventListener('click', function() {
+                    console.log(landID.tokenId)
+                    //let cID = String(landID.tokenId);
+                    //console.log(cID);
+                    clicked_id = landID.tokenId;
+                    console.log(clicked_id);
+                    setNewUrl ();
+                }); 
                 
                 // background img
                 const img = datacard.getElementsByTagName('IMG')[0]
