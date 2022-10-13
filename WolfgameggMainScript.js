@@ -74,6 +74,7 @@ function setVisibilityColor() {
         console.log('value: 0');
         console.log('set to hidden');
     } else if (color_overlay.value == 1) {
+        $('.div-grid-item-wg-color').css( 'display', 'block');
         $('.div-overlay-color').css( 'display', 'block');
         $('.div-overlay-owner-color').css( 'display', 'block');
         $('.div-overlay-resources-color').css( 'display', 'none');
