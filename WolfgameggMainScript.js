@@ -7,6 +7,7 @@ let xanoUrl = new URL('https://xtbc-tszb-uv6h.f2.xano.io/api:8LJ-JoNQ');
 let clicked_id;
 
 let community = document.getElementById("Community-selecter");
+let searchbox = document.getElementById("searchbox");
 let color_overlay = document.getElementById("Color-overlay");
 let overlay_tokenId = document.getElementById("tokenId-selecter");
 let overlay_ens = document.getElementById("ens-selecter");
@@ -22,11 +23,19 @@ community.addEventListener("change", function(){
     console.log('community changed to:' + community.value)
     getLandData(community.value)
 });
+
+//detect search input change
+searchbox.addEventListener("change", function(){ 
+    console.log('community changed to:' + community.value)
+    getLandData(community.value)
+});
+
 // detect change in color-overlay selection
 color_overlay.addEventListener("change", function(){ 
     console.log(color_overlay.value)
     setVisibilityColor();
 });
+
 // detect change in data-overlay selection
 overlay_tokenId.addEventListener("click", function(){ 
     console.log(overlay_tokenId.checked)
@@ -106,6 +115,70 @@ function removeElementsByClass(className){
     }
 }
 
+function openDetailsWindow(){
+    // to do
+}
+
+function search(searchQuery){
+    let request = new XMLHttpRequest();
+    let url;
+    if (searchQuery.startsWith("c")){
+        url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + 'type=com';
+    } else if (searchQuery.startsWith("#")){
+        url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + 'type=id';
+    } else {
+        return;
+    }
+
+    request.open('GET', url, true)
+
+    request.onload = function() {
+
+        // Store what we get back from the Xano API as a variable called 'data' and converts it to a javascript object
+        let data = JSON.parse(this.response)
+
+        // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
+        if (request.status >= 200 && request.status < 400) {
+
+            // Map a variable called cardContainer to the Webflow element called "Cards-Container"
+            const searchResultContainer = document.getElementById("searchResults")
+
+            // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
+            // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
+            data.forEach(landID => {
+                const resultstyle = document.getElementById('searchResultSample')
+                // Copy the card and it's style
+                const resultcard = resultstyle.cloneNode(true)
+
+                resultcard.setAttribute('id', landID.tokenId);
+                //resultcard.className = "div-grid-item-wg-data";
+                resultcard.style.display = 'block';
+
+                resultcard.addEventListener('click', function() {
+                    console.log('result clicked:'+landID.tokenId)
+                    community.value = landID.community;
+                    $('.div-overlay-color').css( 'display', 'block');
+                    $('.div-overlay-resources-color').css( 'display', 'none');
+                    $('.div-overlay-owner-color').css( 'display', 'none');
+                    let selecter = document.getElementById('search'+landID.tokenId)
+                    selecter.style.display = 'block'
+                }); 
+
+                const img = resultcard.getElementsByTagName('IMG')[0]
+                img.src = landID.editedUrlWebp;
+ 
+                const tokenIdText = resultcard.querySelector("div.search-result-text-wrapper > div.search-result-tokenid")
+                tokenIdText.textContent = 'TOKENID #'+landID.tokenId;
+
+                const communityText = resultcard.querySelector("div.search-result-text-wrapper > div.search-result-community")
+                communityText.textContent = 'Community: '+landID.community;
+
+                searchResultContainer.appendChild(resultcard);
+            });
+        }
+    }
+}
+
 function getLandData(communityNumber) {
     removeElementsByClass('div-grid-item-wg-data');
     removeElementsByClass('div-grid-item-wg-color');
@@ -132,20 +205,20 @@ function getLandData(communityNumber) {
             data.forEach(landID => {
                 
                 // For each restaurant, create a div called card and style with the "Sample Card" class
-                const datastyle = document.getElementById('data_sample')
-                const colorstyle = document.getElementById('color_sample')
+                const imgstyle = document.getElementById('data_sample')
+                const datastyle = document.getElementById('color_sample')
                 // Copy the card and it's style
+                const imgcard = imgstyle.cloneNode(true)
                 const datacard = datastyle.cloneNode(true)
-                const colorcard = colorstyle.cloneNode(true)
 
-                datacard.setAttribute('id', landID.tokenId);
-                datacard.className = "div-grid-item-wg-data";
-                datacard.style.display = 'block';
+                imgcard.setAttribute('id', 'img'+landID.tokenId);
+                imgcard.className = "div-grid-item-wg-data";
+                imgcard.style.display = 'block';
                 //datacard.style.zIndex = 200000-landID.tokenId;
 
-                colorcard.setAttribute('id', landID.tokenId);
-                colorcard.className = "div-grid-item-wg-color";
-                colorcard.style.display = 'none';
+                datacard.setAttribute('id', 'data'+landID.tokenId);
+                datacard.className = "div-grid-item-wg-color";
+                datacard.style.display = 'none';
                 //colorcard.style.zIndex = 200000-landID.tokenId;
 
                 console.log(landID);
@@ -153,7 +226,7 @@ function getLandData(communityNumber) {
                 clicked_id = landID.tokenId;
 
                 // action when land is pressed
-                datacard.addEventListener('click', function() {
+                imgcard.addEventListener('click', function() {
                     console.log(landID.tokenId)
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
@@ -162,7 +235,7 @@ function getLandData(communityNumber) {
                     setNewUrl ();
                 });  
                 
-                colorcard.addEventListener('click', function() {
+                datacard.addEventListener('click', function() {
                     console.log(landID.tokenId)
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
@@ -172,41 +245,45 @@ function getLandData(communityNumber) {
                 }); 
                 
                 // background img
-                const img = datacard.getElementsByTagName('IMG')[0]
+                const img = imgcard.getElementsByTagName('IMG')[0]
                 img.src = landID.editedUrlWebp; // using Xano's template engine to re-size the pictures down and make them a box
                 
                 // overlay-data
-                const tokenIdText = colorcard.querySelector("div.div-overlay-data > div.text-token-id")
+                const tokenIdText = datacard.querySelector("div.div-overlay-data > div.text-token-id")
                 tokenIdText.textContent = 'TOKENID #'+landID.tokenId;
 
-                const ensNameText = colorcard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-ens-holder")
+                const ensNameText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-ens-holder")
                 ensNameText.textContent = landID.__owners[0].ENSname;
 
-                const rawAddresText = colorcard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
+                const rawAddresText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
                 rawAddresText.textContent = landID.__owners[0].Ethereum_address;
 
-                const socialsText = colorcard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
+                const socialsText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
                 rawAddresText.textContent = landID.__owners[0].Ethereum_address;
 
                 // overlay-color
-                const colorGreen = colorcard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-green")
+                const colorGreen = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-green")
                 colorGreen.style.backgroundColor = landID.greenColorValue;
 
-                const colorGrey = colorcard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-grey")
+                const colorGrey = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-grey")
                 colorGrey.style.backgroundColor = landID.greyColorValue;
                 
-                const colorBlue = colorcard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-blue")
+                const colorBlue = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-blue")
                 colorBlue.style.backgroundColor = landID.blueColorValue;
 
-                const colorBrown = colorcard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-brown")
+                const colorBrown = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-brown")
                 colorBrown.style.backgroundColor = landID.brownColorValue;
 
-                const colorOwner = colorcard.querySelector("div.div-overlay-color > div.div-overlay-owner-color")
+                const colorOwner = datacard.querySelector("div.div-overlay-color > div.div-overlay-owner-color")
                 colorOwner.style.backgroundColor = landID.__owners[0].Occupation_color;
 
+                const colorSearch = datacard.querySelector("div.div-overlay-color > div.div-overlay-search-color")
+                colorSearch.setAttribute('id', 'search'+landID.tokenId)
+                colorSearch.style.backgroundColor = 'rgba(176, 29, 24, 0.9)'
+                colorSearch.style.display = 'none'
                 // add card to map
-                landDataContainer.appendChild(datacard);
-                landColorContainer.appendChild(colorcard);
+                landDataContainer.appendChild(imgcard);
+                landColorContainer.appendChild(datacard);
             })
         }
     }
