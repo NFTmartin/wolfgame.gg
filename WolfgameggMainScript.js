@@ -204,7 +204,7 @@
         // Send Restaurant request to API
         request.send();
     }
-    // github test v3
+    // github test v4
 
    (function() {
         setNewUrl ();
