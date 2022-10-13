@@ -80,6 +80,7 @@ function setVisibilityColor() {
         console.log('value: 1');
         console.log('set to owner');
     } else if (color_overlay.value == 2) {
+        $('.div-grid-item-wg-color').css( 'display', 'block');
         $('.div-overlay-color').css( 'display', 'block');
         $('.div-overlay-resources-color').css( 'display', 'block');
         $('.div-overlay-owner-color').css( 'display', 'none');
