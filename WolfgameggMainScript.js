@@ -1,4 +1,4 @@
-// github test v13.1
+// github test v13.2
 
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
@@ -126,10 +126,10 @@ function search(searchQuery){
     let request = new XMLHttpRequest();
     let url;
     if (searchQuery.startsWith("c")){
-        url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + '&type=com';
+        url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery + '&type=com';
         console.log(url)
     } else if (searchQuery.startsWith("#")){
-        url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + '&type=id';
+        url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery + '&type=id';
         console.log(url)
     }
 
