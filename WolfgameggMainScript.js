@@ -28,8 +28,9 @@ community.addEventListener("change", function(){
 
 //detect search input change
 searchbox.addEventListener("input", function(){ 
-    console.log('community changed to:' + community.value)
+    console.log('search'+searchbox.value)
     search(searchbox.value)
+    console.log('search'+searchbox.value)
 });
 
 // detect change in color-overlay selection
@@ -128,17 +129,16 @@ function search(searchQuery){
         url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + 'type=com';
     } else if (searchQuery.startsWith("#")){
         url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + 'type=id';
-    } else {
-        return;
     }
 
     request.open('GET', url, true)
+    console.log('request opened')
 
     request.onload = function() {
 
         // Store what we get back from the Xano API as a variable called 'data' and converts it to a javascript object
         let data = JSON.parse(this.response)
-
+        console.log(data)
         // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
         if (request.status >= 200 && request.status < 400) {
 
@@ -148,6 +148,7 @@ function search(searchQuery){
             // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
             // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
             data.forEach(landID => {
+                console.log(landID)
                 const resultstyle = document.getElementById('searchResultSample')
                 // Copy the card and it's style
                 const resultcard = resultstyle.cloneNode(true)
@@ -220,10 +221,12 @@ function getLandData(communityNumber) {
 
                 datacard.setAttribute('id', 'data'+landID.tokenId);
                 datacard.className = "div-grid-item-wg-color";
-                datacard.style.display = 'none';
+                datacard.style.display = 'block';
                 //colorcard.style.zIndex = 200000-landID.tokenId;
 
-                console.log(landID);
+                
+
+                console.log('land loaded');
 
                 clicked_id = landID.tokenId;
 
@@ -263,6 +266,7 @@ function getLandData(communityNumber) {
                 const socialsText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
                 rawAddresText.textContent = landID.__owners[0].Ethereum_address;
 
+
                 // overlay-color
                 const colorGreen = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-green")
                 colorGreen.style.backgroundColor = landID.greenColorValue;
@@ -283,6 +287,10 @@ function getLandData(communityNumber) {
                 colorSearch.setAttribute('id', 'search'+landID.tokenId)
                 colorSearch.style.backgroundColor = 'rgba(176, 29, 24, 0.9)'
                 colorSearch.style.display = 'none'
+
+                $('.div-overlay-color').css( 'display', 'none');
+                $('.text-overlay-social-handle').css( 'display', 'none');
+
                 // add card to map
                 landDataContainer.appendChild(imgcard);
                 landColorContainer.appendChild(datacard);
