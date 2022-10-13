@@ -1,3 +1,5 @@
+// github test v12
+
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
 document.getElementsByTagName('head')[0].appendChild(script);
@@ -27,7 +29,7 @@ community.addEventListener("change", function(){
 //detect search input change
 searchbox.addEventListener("input", function(){ 
     console.log('community changed to:' + community.value)
-    getLandData(community.value)
+    search(searchbox.value)
 });
 
 // detect change in color-overlay selection
@@ -291,7 +293,6 @@ function getLandData(communityNumber) {
     // Send Restaurant request to API
     request.send();
 }
-// github test v11
 
 (function() {
     setNewUrl ();
