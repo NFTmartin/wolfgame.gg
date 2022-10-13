@@ -1,4 +1,4 @@
-// github test v12
+// github test v13
 
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
@@ -127,15 +127,17 @@ function search(searchQuery){
     let url;
     if (searchQuery.startsWith("c")){
         url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + 'type=com';
+        console.log(url)
     } else if (searchQuery.startsWith("#")){
         url = xanoUrl.toString() + '//searchLand' + '?searchQuery=' + searchQuery + 'type=id';
+        console.log(url)
     }
 
     request.open('GET', url, true)
     console.log('request opened')
 
     request.onload = function() {
-
+        console.log('request loaded')
         // Store what we get back from the Xano API as a variable called 'data' and converts it to a javascript object
         let data = JSON.parse(this.response)
         console.log(data)
