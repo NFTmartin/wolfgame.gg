@@ -143,7 +143,7 @@ function getLandData(communityNumber) {
 
                 colorcard.setAttribute('id', landID.tokenId);
                 colorcard.className = "div-grid-item-wg-color";
-                colorcard.style.display = 'block';
+                colorcard.style.display = 'none';
                 //colorcard.style.zIndex = 200000-landID.tokenId;
 
                 console.log(landID);
@@ -203,7 +203,7 @@ function getLandData(communityNumber) {
     // Send Restaurant request to API
     request.send();
 }
-// github test v6
+// github test v7
 
 (function() {
     setNewUrl ();
