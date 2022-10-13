@@ -204,7 +204,8 @@
         // Send Restaurant request to API
         request.send();
     }
-    // github test v2
+    // github test v3
+    
    (function() {
         setNewUrl ();
         getLandData(community_value);  
