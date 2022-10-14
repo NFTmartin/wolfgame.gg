@@ -139,6 +139,7 @@ function search(searchQuery){
 
     request.open('GET', url, true)
     console.log('request opened')
+    console.log(request)
 
     request.onload = function() {
         console.log('request loaded')
