@@ -134,6 +134,7 @@ function search(searchQuery){
         console.log(url)
     } else {
         url = xanoUrl.toString() + '/searchLand' + '?searchQuery="' + searchQuery.trimStart("#") +'"'+ '&type=id';
+        console.log(url)
     }
 
     request.open('GET', url, true)
