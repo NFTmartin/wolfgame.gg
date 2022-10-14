@@ -1,4 +1,4 @@
-// github test v13.4
+// github test v13.5
 
 
 var script = document.createElement('script');
@@ -136,6 +136,7 @@ function search(searchQuery){
         url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery.trimStart("#") + '&type=id';
         console.log(url)
     }
+    console.log(url)
 
     request.open('GET', url, true)
     console.log('request opened')
