@@ -130,10 +130,10 @@ function search(searchQuery){
         url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery.trimStart("c") + '&type=com';
         console.log(url)
     } else if (searchQuery.startsWith("#")){
-        url = xanoUrl.toString() + '/searchLand' + '?searchQuery="' + searchQuery.trimStart("#") +'"'+ '&type=id';
+        url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery.trimStart("#") + '&type=id';
         console.log(url)
     } else {
-        url = xanoUrl.toString() + '/searchLand' + '?searchQuery="' + searchQuery.trimStart("#") +'"'+ '&type=id';
+        url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery.trimStart("#") + '&type=id';
         console.log(url)
     }
 
