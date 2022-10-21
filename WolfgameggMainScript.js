@@ -125,6 +125,7 @@ function openDetailsWindow(){
 
 function search(searchQuery){
     removeElementsByClass('search-result-item');
+    
     let request = new XMLHttpRequest();
     let url;
     //let url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery + '&type=com';
@@ -164,7 +165,7 @@ function search(searchQuery){
                 const resultcard = resultstyle.cloneNode(true)
 
                 resultcard.setAttribute('id', landID.tokenId);
-                //resultcard.className = "div-grid-item-wg-data";
+                resultcard.className = "search-result-item";
                 resultcard.style.display = 'block';
 
                 resultcard.addEventListener('click', function() {
