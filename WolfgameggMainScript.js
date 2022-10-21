@@ -155,6 +155,7 @@ function search(searchQuery){
 
             // Map a variable called cardContainer to the Webflow element called "Cards-Container"
             const searchResultContainer = document.getElementById("searchResults")
+            removeElementsByClass('search-result-item');
 
             // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
             // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
