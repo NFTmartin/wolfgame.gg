@@ -125,9 +125,9 @@ function openDetailsWindow(){
 
 function search(searchQuery){
     let request = new XMLHttpRequest();
-    //let url;
-    let url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery + '&type=com';
-    /*if (searchQuery.startsWith("c")){
+    let url;
+    //let url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery + '&type=com';
+    if (searchQuery.startsWith("c")){
         url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery.trimStart("c") + '&type=com';
         console.log(url)
     } else if (searchQuery.startsWith("#")){
@@ -136,7 +136,7 @@ function search(searchQuery){
     } else {
         url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery.trimStart("#") + '&type=id';
         console.log(url)
-    }*/
+    }
     console.log(url)
 
     request.open('GET', url, true)
