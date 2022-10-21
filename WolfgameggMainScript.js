@@ -150,10 +150,11 @@ function search(searchQuery){
         // Store what we get back from the Xano API as a variable called 'data' and converts it to a javascript object
         let data = JSON.parse(this.response)
         console.log(data)
+        removeElementsByClass('search-result-item');
 
         if (data.length === 0){
             console.log('array is empty')
-            $('.search-result-item-no-result').css( 'display', 'block');
+            $('.search-result-item-no-result').css( 'display', 'flex');
 
         } else {
             // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
@@ -161,7 +162,6 @@ function search(searchQuery){
 
                 // Map a variable called cardContainer to the Webflow element called "Cards-Container"
                 const searchResultContainer = document.getElementById("searchResults")
-                removeElementsByClass('search-result-item');
 
                 // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
                 // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
