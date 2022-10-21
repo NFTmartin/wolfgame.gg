@@ -150,46 +150,52 @@ function search(searchQuery){
         // Store what we get back from the Xano API as a variable called 'data' and converts it to a javascript object
         let data = JSON.parse(this.response)
         console.log(data)
-        // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
-        if (request.status >= 200 && request.status < 400) {
 
-            // Map a variable called cardContainer to the Webflow element called "Cards-Container"
-            const searchResultContainer = document.getElementById("searchResults")
-            removeElementsByClass('search-result-item');
+        if (jQuery.isEmptyObject(data) === true){
+            $('.search-result-item-no-result').css( 'display', 'block');
 
-            // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
-            // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
-            data.forEach(landID => {
-                //console.log(landID)
-                const resultstyle = document.getElementById('searchResultSample')
-                // Copy the card and it's style
-                const resultcard = resultstyle.cloneNode(true)
+        } else {
+            // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
+            if (request.status >= 200 && request.status < 400) {
 
-                resultcard.setAttribute('id', landID.tokenId);
-                resultcard.className = "search-result-item";
-                resultcard.style.display = 'block';
+                // Map a variable called cardContainer to the Webflow element called "Cards-Container"
+                const searchResultContainer = document.getElementById("searchResults")
+                removeElementsByClass('search-result-item');
 
-                resultcard.addEventListener('click', function() {
-                    console.log('result clicked:'+landID.tokenId)
-                    community.value = landID.community;
-                    $('.div-overlay-color').css( 'display', 'block');
-                    $('.div-overlay-resources-color').css( 'display', 'none');
-                    $('.div-overlay-owner-color').css( 'display', 'none');
-                    let selecter = document.getElementById('search'+landID.tokenId)
-                    selecter.style.display = 'block'
-                }); 
+                // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
+                // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
+                data.forEach(landID => {
+                    //console.log(landID)
+                    const resultstyle = document.getElementById('searchResultSample')
+                    // Copy the card and it's style
+                    const resultcard = resultstyle.cloneNode(true)
 
-                const img = resultcard.getElementsByTagName('IMG')[0]
-                img.src = landID.editedUrlWebp;
- 
-                const tokenIdText = resultcard.querySelector("div.search-result-text-wrapper > div.search-result-tokenid")
-                tokenIdText.textContent = 'TOKENID #'+landID.tokenId;
+                    resultcard.setAttribute('id', landID.tokenId);
+                    resultcard.className = "search-result-item";
+                    resultcard.style.display = 'block';
 
-                const communityText = resultcard.querySelector("div.search-result-text-wrapper > div.search-result-community")
-                communityText.textContent = 'Community: '+landID.community;
+                    resultcard.addEventListener('click', function() {
+                        console.log('result clicked:'+landID.tokenId)
+                        community.value = landID.community;
+                        $('.div-overlay-color').css( 'display', 'block');
+                        $('.div-overlay-resources-color').css( 'display', 'none');
+                        $('.div-overlay-owner-color').css( 'display', 'none');
+                        let selecter = document.getElementById('search'+landID.tokenId)
+                        selecter.style.display = 'block'
+                    }); 
 
-                searchResultContainer.appendChild(resultcard);
-            });
+                    const img = resultcard.getElementsByTagName('IMG')[0]
+                    img.src = landID.editedUrlWebp;
+    
+                    const tokenIdText = resultcard.querySelector("div.search-result-text-wrapper > div.search-result-tokenid")
+                    tokenIdText.textContent = 'TOKENID #'+landID.tokenId;
+
+                    const communityText = resultcard.querySelector("div.search-result-text-wrapper > div.search-result-community")
+                    communityText.textContent = 'Community: '+landID.community;
+
+                    searchResultContainer.appendChild(resultcard);
+                });
+            }
         }
     }
     request.send();
