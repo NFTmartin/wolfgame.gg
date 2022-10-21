@@ -125,7 +125,7 @@ function openDetailsWindow(){
 
 function search(searchQuery){
     removeElementsByClass('search-result-item');
-    
+
     let request = new XMLHttpRequest();
     let url;
     //let url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery + '&type=com';
@@ -159,7 +159,7 @@ function search(searchQuery){
             // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
             // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
             data.forEach(landID => {
-                console.log(landID)
+                //console.log(landID)
                 const resultstyle = document.getElementById('searchResultSample')
                 // Copy the card and it's style
                 const resultcard = resultstyle.cloneNode(true)
