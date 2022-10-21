@@ -124,6 +124,7 @@ function openDetailsWindow(){
 }
 
 function search(searchQuery){
+    removeElementsByClass('search-result-item');
     let request = new XMLHttpRequest();
     let url;
     //let url = xanoUrl.toString() + '/searchLand' + '?searchQuery=' + searchQuery + '&type=com';
