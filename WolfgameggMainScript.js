@@ -151,7 +151,8 @@ function search(searchQuery){
         let data = JSON.parse(this.response)
         console.log(data)
 
-        if (jQuery.isEmptyObject(data) === true){
+        if (data.length === 0){
+            console.log('array is empty')
             $('.search-result-item-no-result').css( 'display', 'block');
 
         } else {
