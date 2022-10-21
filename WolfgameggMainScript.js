@@ -159,6 +159,7 @@ function search(searchQuery){
         } else {
             // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
             if (request.status >= 200 && request.status < 400) {
+                $('.search-result-item-no-result').css( 'display', 'none');
 
                 // Map a variable called cardContainer to the Webflow element called "Cards-Container"
                 const searchResultContainer = document.getElementById("searchResults")
