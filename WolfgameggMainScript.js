@@ -125,6 +125,7 @@ function openDetailsWindow(){
 
 function search(searchQuery){
     removeElementsByClass('search-result-item');
+    $('.div-overlay-search-color').css( 'display', 'none');
 
     let request = new XMLHttpRequest();
     let url;
@@ -179,9 +180,11 @@ function search(searchQuery){
                     resultcard.addEventListener('click', function() {
                         console.log('result clicked:'+landID.tokenId)
                         community.value = landID.community;
+                        getLandData(landID.community);
                         $('.div-overlay-color').css( 'display', 'block');
                         $('.div-overlay-resources-color').css( 'display', 'none');
                         $('.div-overlay-owner-color').css( 'display', 'none');
+                        $('.div-overlay-search-color').css( 'display', 'none');
                         let selecter = document.getElementById('search'+landID.tokenId)
                         selecter.style.display = 'block'
                     }); 
