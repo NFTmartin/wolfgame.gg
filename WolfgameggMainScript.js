@@ -180,7 +180,9 @@ function search(searchQuery){
                     resultcard.addEventListener('click', function() {
                         console.log('result clicked:'+landID.tokenId)
                         if(community.value != landID.community){
-                            getLandData(landID.community);
+                            
+                            window.addEventListener('DOMContentLoaded', getLandData(landID.community));
+                            
                         }
                         community.value = landID.community;
                         $('.div-overlay-color').css( 'display', 'block');
