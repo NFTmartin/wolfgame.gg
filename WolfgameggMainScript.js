@@ -179,10 +179,10 @@ function search(searchQuery){
 
                     resultcard.addEventListener('click', function() {
                         console.log('result clicked:'+landID.tokenId)
-                        community.value = landID.community;
                         if(community.value != landID.community){
                             getLandData(landID.community);
                         }
+                        community.value = landID.community;
                         $('.div-overlay-color').css( 'display', 'block');
                         $('.div-overlay-resources-color').css( 'display', 'none');
                         $('.div-overlay-owner-color').css( 'display', 'none');
