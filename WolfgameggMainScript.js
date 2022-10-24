@@ -183,13 +183,14 @@ function search(searchQuery){
                             getLandData(landID.community);
                             
                         }
-                        $( document ).ready(function() {
+                        $(document).ready(function() {
                             console.log('dom loaded');
                             community.value = landID.community;
                             $('.div-overlay-color').css( 'display', 'block');
                             $('.div-overlay-resources-color').css( 'display', 'none');
                             $('.div-overlay-owner-color').css( 'display', 'none');
                             //$('.div-overlay-search-color').css( 'display', 'none');
+                            console.log('search'+landID.tokenId)
                             let selecter = document.getElementById('search'+landID.tokenId)
                             console.log('selecter: '+selecter)
                             selecter.style.display = 'block'
