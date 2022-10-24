@@ -224,7 +224,7 @@ function getLandData(communityNumber) {
 
         // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
         if (request.status >= 200 && request.status < 400) {
-
+            community.value = landID.community;
             // Map a variable called cardContainer to the Webflow element called "Cards-Container"
             const landDataContainer = document.getElementById("land-data-container")
             const landColorContainer = document.getElementById("land-color-container")
