@@ -180,18 +180,19 @@ function search(searchQuery){
                     resultcard.addEventListener('click', function() {
                         console.log('result clicked:'+landID.tokenId)
                         if(community.value != landID.community){
-                            
-                            window.addEventListener('DOMContentLoaded', getLandData(landID.community));
+                            getLandData(landID.community);
                             
                         }
-                        community.value = landID.community;
-                        $('.div-overlay-color').css( 'display', 'block');
-                        $('.div-overlay-resources-color').css( 'display', 'none');
-                        $('.div-overlay-owner-color').css( 'display', 'none');
-                        //$('.div-overlay-search-color').css( 'display', 'none');
-                        let selecter = document.getElementById('search'+landID.tokenId)
-                        console.log('selecter:'+selecter.id)
-                        selecter.style.display = 'block'
+                        window.addEventListener('DOMContentLoaded', function(){
+                            community.value = landID.community;
+                            $('.div-overlay-color').css( 'display', 'block');
+                            $('.div-overlay-resources-color').css( 'display', 'none');
+                            $('.div-overlay-owner-color').css( 'display', 'none');
+                            //$('.div-overlay-search-color').css( 'display', 'none');
+                            let selecter = document.getElementById('search'+landID.tokenId)
+                            console.log('selecter:'+selecter.id)
+                            selecter.style.display = 'block'
+                        });
                     }); 
 
                     const img = resultcard.getElementsByTagName('IMG')[0]
