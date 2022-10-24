@@ -191,7 +191,7 @@ function search(searchQuery){
                             $('.div-overlay-owner-color').css( 'display', 'none');
                             //$('.div-overlay-search-color').css( 'display', 'none');
                             let selecter = document.getElementById('search'+landID.tokenId)
-                            console.log('selecter:')
+                            console.log('selecter: '+selecter)
                             selecter.style.display = 'block'
                         });
                     }); 
