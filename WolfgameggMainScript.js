@@ -183,7 +183,7 @@ function search(searchQuery){
                             getLandData(landID.community);
                             
                         }
-                        $(document).ready(function() {
+                        $(document).load(function() {
                             console.log('dom loaded');
                             community.value = landID.community;
                             $('.div-overlay-color').css( 'display', 'block');
