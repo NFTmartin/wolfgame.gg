@@ -161,7 +161,6 @@ function search(searchQuery){
             // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
             if (request.status >= 200 && request.status < 400) {
                 $('.search-result-item-no-result').css( 'display', 'none');
-                community.value = data.community;
 
                 // Map a variable called cardContainer to the Webflow element called "Cards-Container"
                 const searchResultContainer = document.getElementById("searchResults")
@@ -180,15 +179,16 @@ function search(searchQuery){
 
                     resultcard.addEventListener('click', function() {
                         console.log('result clicked:'+landID.tokenId)
-                        //community.value = landID.community;
+                        community.value = landID.community;
                         if(community.value != landID.community){
                             getLandData(landID.community);
                         }
                         $('.div-overlay-color').css( 'display', 'block');
                         $('.div-overlay-resources-color').css( 'display', 'none');
                         $('.div-overlay-owner-color').css( 'display', 'none');
-                        $('.div-overlay-search-color').css( 'display', 'none');
+                        //$('.div-overlay-search-color').css( 'display', 'none');
                         let selecter = document.getElementById('search'+landID.tokenId)
+                        console.log('selecter:'+selecter.id)
                         selecter.style.display = 'block'
                     }); 
 
