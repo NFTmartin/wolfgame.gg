@@ -183,7 +183,7 @@ function search(searchQuery){
                             getLandData(landID.community);
                             
                         }
-                        $( "#mapWrapper" ).load(function() {
+                        setTimeout(function(){
                             console.log('dom loaded');
                             community.value = landID.community;
                             $('.div-overlay-color').css( 'display', 'block');
@@ -194,7 +194,8 @@ function search(searchQuery){
                             let selecter = document.getElementById('search'+landID.tokenId)
                             console.log('selecter: '+selecter)
                             selecter.style.display = 'block'
-                        });
+                          }, 1000);
+                        //});
                     }); 
 
                     const img = resultcard.getElementsByTagName('IMG')[0]
