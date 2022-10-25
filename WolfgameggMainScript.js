@@ -125,6 +125,7 @@ function openDetailsWindow(){
 
 function search(searchQuery){
     removeElementsByClass('search-result-item');
+    //deletes old search results
     $('.div-overlay-search-color').css( 'display', 'none');
 
     let request = new XMLHttpRequest();
@@ -179,6 +180,8 @@ function search(searchQuery){
 
                     resultcard.addEventListener('click', function() {
                         console.log('result clicked:'+landID.tokenId)
+                        //deletes old search results
+                        $('.div-overlay-search-color').css( 'display', 'none');
                         if(community.value != landID.community){
                             getLandData(landID.community);
                             
@@ -188,7 +191,6 @@ function search(searchQuery){
                                 $('.div-overlay-color').css( 'display', 'block');
                                 $('.div-overlay-resources-color').css( 'display', 'none');
                                 $('.div-overlay-owner-color').css( 'display', 'none');
-                                //$('.div-overlay-search-color').css( 'display', 'none');
                                 console.log('search'+landID.tokenId)
                                 let selecter = document.getElementById('search'+landID.tokenId)
                                 console.log('selecter: '+selecter)
@@ -201,7 +203,6 @@ function search(searchQuery){
                             $('.div-overlay-color').css( 'display', 'block');
                             $('.div-overlay-resources-color').css( 'display', 'none');
                             $('.div-overlay-owner-color').css( 'display', 'none');
-                            //$('.div-overlay-search-color').css( 'display', 'none');
                             console.log('search'+landID.tokenId)
                             let selecter = document.getElementById('search'+landID.tokenId)
                             console.log('selecter: '+selecter)
