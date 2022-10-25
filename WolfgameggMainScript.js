@@ -182,8 +182,20 @@ function search(searchQuery){
                         if(community.value != landID.community){
                             getLandData(landID.community);
                             
-                        }
-                        setTimeout(function(){
+                            setTimeout(function(){
+                                console.log('dom loaded');
+                                community.value = landID.community;
+                                $('.div-overlay-color').css( 'display', 'block');
+                                $('.div-overlay-resources-color').css( 'display', 'none');
+                                $('.div-overlay-owner-color').css( 'display', 'none');
+                                //$('.div-overlay-search-color').css( 'display', 'none');
+                                console.log('search'+landID.tokenId)
+                                let selecter = document.getElementById('search'+landID.tokenId)
+                                console.log('selecter: '+selecter)
+                                selecter.style.display = 'block'
+                              }, 1000);
+                            
+                        } else {
                             console.log('dom loaded');
                             community.value = landID.community;
                             $('.div-overlay-color').css( 'display', 'block');
@@ -194,8 +206,8 @@ function search(searchQuery){
                             let selecter = document.getElementById('search'+landID.tokenId)
                             console.log('selecter: '+selecter)
                             selecter.style.display = 'block'
-                          }, 1000);
-                        //});
+                        }
+                       
                     }); 
 
                     const img = resultcard.getElementsByTagName('IMG')[0]
