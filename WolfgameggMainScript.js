@@ -70,18 +70,17 @@ overlay_resources.addEventListener("click", function(){
 let aboutButton = document.getElementById("aboutLink");
 aboutButton.addEventListener("click", function(){ 
     console.log('about clicked')
-    $(aboutButton).css( 'display', 'flex');
+    resultcard.style.display = 'flex';
 });
 
 let aboutCloseButton = document.getElementById("aboutCloseButton");
 aboutCloseButton.addEventListener("click", function(){ 
     console.log('about closed')
-    $(aboutCloseButton).css( 'display', 'flex');
+    resultcard.style.display = 'none';
 });
 
 
 //site functions
-
 function setVisibilityData(checkboxElement, className) {
     setNewUrl ();
 
