@@ -70,13 +70,13 @@ overlay_resources.addEventListener("click", function(){
 let aboutButton = document.getElementById("aboutLink");
 aboutButton.addEventListener("click", function(){ 
     console.log('about clicked')
-    resultcard.style.display = 'flex';
+    aboutButton.style.display = 'flex';
 });
 
 let aboutCloseButton = document.getElementById("aboutCloseButton");
 aboutCloseButton.addEventListener("click", function(){ 
     console.log('about closed')
-    resultcard.style.display = 'none';
+    aboutCloseButton.style.display = 'none';
 });
 
 
