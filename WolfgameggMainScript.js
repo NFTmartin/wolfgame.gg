@@ -66,6 +66,22 @@ overlay_resources.addEventListener("click", function(){
     setVisibilityData(overlay_resources, ".text-token-id");
 });
 
+//nav on-click events
+let aboutButton = document.getElementById("aboutLink");
+aboutButton.addEventListener("click", function(){ 
+    console.log('about clicked')
+    $(aboutButton).css( 'display', 'flex');
+});
+
+let aboutCloseButton = document.getElementById("aboutCloseButton");
+aboutCloseButton.addEventListener("click", function(){ 
+    console.log('about closed')
+    $(aboutCloseButton).css( 'display', 'flex');
+});
+
+
+//site functions
+
 function setVisibilityData(checkboxElement, className) {
     setNewUrl ();
 
