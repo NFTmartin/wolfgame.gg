@@ -20,8 +20,22 @@ let overlay_socials = document.getElementById("socials-selecter");
 let overlay_resources = document.getElementById("resources-selecter");
 let checkbox_search_clear = document.getElementById("clear-selecter");
 
+let welcome_screen = document.getElementById("welcome-screen");
+let dont_bother_check = document.getElementById("dont-bother-again-check");
+let i_agree_button = document.getElementById("i-agree-button");
+
 let community_value = community.value;
 let tokenId_value = overlay_tokenId.checked;
+
+// welcome screen hide on-click
+i_agree_button.addEventListener("click", function(){ 
+    //sets cookie to hide welcome screen in the future
+   if (dont_bother_check.checked === true) {
+    setCookie(hideWelcome, true, 1)
+    console.log(getCookie(hideWelcome))
+   }
+   welcome_screen.style.display = 'block';
+});
 
 // detect change in cummunity selection
 community.addEventListener("change", function(){ 
@@ -88,6 +102,30 @@ aboutCloseButton.addEventListener("click", function(){
     $('.about-screen-v2').css( 'display', 'none');
 });
 
+
+//working with cookies
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
 
 //site functions
 function setVisibilityData(checkboxElement, className) {
