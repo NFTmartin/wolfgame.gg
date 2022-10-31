@@ -438,3 +438,21 @@ function getLandData(communityNumber) {
     getLandData(community_value);  
 
 })();
+
+/*//////////
+panzoom code
+//////////*/
+
+var draggableMap = document.getElementById('scene')
+
+// and forward it it to panzoom.
+var pz = panzoom(draggableMap)
+
+function pausePan(e) {
+e.preventDefault();
+pz.pause();
+}
+function resumePan(e) {
+e.preventDefault();
+pz.resume();
+}
