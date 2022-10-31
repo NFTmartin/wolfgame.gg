@@ -147,7 +147,7 @@ function search(searchQuery){
     //deletes old search results
     if (checkbox_search_clear.checked == true) {
         $('.div-overlay-search-color').css( 'display', 'none');
-        console.log('result cleared')
+        console.log('result cleared, checked:'+checkbox_search_clear.checked)
     }
 
     let request = new XMLHttpRequest();
