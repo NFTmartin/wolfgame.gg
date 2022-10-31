@@ -133,7 +133,7 @@ function checkCookies(){
     console.log('check cookies started')
     // - hide welcome
     console.log(getCookie('hideWelcome'))
-    if (getCookie('hideWelcome') === false || getCookie('hideWelcome').length === 0){
+    if (getCookie('hideWelcome') === false || getCookie('hideWelcome') === ""){
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
     }
