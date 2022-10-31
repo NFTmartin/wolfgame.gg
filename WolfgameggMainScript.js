@@ -1,9 +1,10 @@
-// github test v13.5
+//////////////////////////////////////
+//Main Javascript code for WOLFGAME.gg
+//////////////////////////////////////
 
-
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-document.getElementsByTagName('head')[0].appendChild(script);
+//var script = document.createElement('script');
+//script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+//document.getElementsByTagName('head')[0].appendChild(script);
 
 // Create a variable for the API endpoint. In this example, we're accessing Xano's API
 let xanoUrl = new URL('https://xtbc-tszb-uv6h.f2.xano.io/api:8LJ-JoNQ');
