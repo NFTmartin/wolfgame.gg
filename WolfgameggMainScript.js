@@ -132,8 +132,8 @@ function getCookie(cname) {
 function checkCookies(){
     console.log('check cookies started')
     // - hide welcome
-    let hideWelcome = getCookie('hideWelcome')
-    if (hideWelcome == false /*|| hideWelcome == null*/){
+    console.log(getCookie('hideWelcome'))
+    if (getCookie('hideWelcome') == false /*|| hideWelcome == null*/){
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
     }
