@@ -130,10 +130,12 @@ function getCookie(cname) {
 
 //checking stored cookies on page load
 function checkCookies(){
+    console.log('check cookies started')
     // - hide welcome
     let hideWelcome = getCookie('hideWelcome')
-    if (hideWelcome == false || hideWelcome == null){
+    if (hideWelcome == false /*|| hideWelcome == null*/){
         welcome_screen.style.display = 'flex';
+        console.log('welcome set to flex')
     }
 }
 
