@@ -33,6 +33,8 @@ i_agree_button.addEventListener("click", function(){
    if (dont_bother_check.checked === true) {
     setCookie('hideWelcome', true, 1)
     console.log(getCookie('hideWelcome'))
+   } else {
+    setCookie('hideWelcome', false, 1)
    }
    welcome_screen.style.display = 'block';
 });
@@ -102,7 +104,6 @@ aboutCloseButton.addEventListener("click", function(){
     $('.about-screen-v2').css( 'display', 'none');
 });
 
-
 //working with cookies
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
@@ -125,6 +126,15 @@ function getCookie(cname) {
       }
     }
     return "";
+}
+
+//checking stored cookies on page load
+function checkCookies(){
+    // - hide welcome
+    let hideWelcome = getCookie('hideWelcome')
+    if (hideWelcome == false || hideWelcome == null){
+        welcome_screen.style.display = 'flex';
+    }
 }
 
 //site functions
@@ -418,6 +428,8 @@ function getLandData(communityNumber) {
 }
 
 (function() {
+    checkCookies();
     setNewUrl ();
     getLandData(community_value);  
+
 })();
