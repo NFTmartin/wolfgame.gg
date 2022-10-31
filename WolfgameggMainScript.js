@@ -203,7 +203,12 @@ function search(searchQuery){
                     resultcard.addEventListener('click', function() {
                         console.log('result clicked:'+landID.tokenId)
                         //deletes old search results
-                        $('.div-overlay-search-color').css( 'display', 'none');
+                        if (checkbox_search_clear.checked == true) {
+                            $('.div-overlay-search-color').css( 'display', 'none');
+                            console.log('result cleared')
+                        }
+
+                        //if needed changes community, and highlights the search result
                         if(community.value != landID.community){
                             getLandData(landID.community);
                             
