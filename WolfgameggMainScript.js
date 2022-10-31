@@ -36,6 +36,11 @@ searchbox.addEventListener("input", function(){
     console.log('search'+searchbox.value)
 });
 
+//detect clear-search checked-status change
+checkbox_search_clear.addEventListener("click", function(){ 
+    $('.div-overlay-search-color').css( 'display', 'none');
+});
+
 // detect change in color-overlay selection
 color_overlay.addEventListener("change", function(){ 
     console.log(color_overlay.value)
