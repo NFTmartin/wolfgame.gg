@@ -31,7 +31,7 @@ let tokenId_value = overlay_tokenId.checked;
 i_agree_button.addEventListener("click", function(){ 
     //sets cookie to hide welcome screen in the future
    if (dont_bother_check.checked === true) {
-    setCookie(hideWelcome, true, 1)
+    setCookie('hideWelcome', true, 1)
     console.log(getCookie('hideWelcome'))
    }
    welcome_screen.style.display = 'block';
