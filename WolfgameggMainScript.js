@@ -443,15 +443,20 @@ function getLandData(communityNumber) {
 panzoom code
 //////////*/
 
-var draggableMap = document.getElementById('scene')
+let draggableMap = document.getElementById('scene')
 
 // and forward it it to panzoom.
-var pz = panzoom(draggableMap)
+let pz = panzoom(draggableMap,{
+    zoomSpeed: 0.065, // 6.5% per mouse wheel event
+    maxZoom: 1,
+    minZoom: 0.1
+});
 
 function pausePan(e) {
 e.preventDefault();
 pz.pause();
 }
+
 function resumePan(e) {
 e.preventDefault();
 pz.resume();
