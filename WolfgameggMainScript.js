@@ -442,6 +442,7 @@ function getLandData(communityNumber) {
 /*//////////
 panzoom code
 //////////*/
+import { panzoom } from "https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"
 
 let draggableMap = document.getElementById('scene')
 
