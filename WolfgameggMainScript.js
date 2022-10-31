@@ -18,6 +18,7 @@ let overlay_ens = document.getElementById("ens-selecter");
 let overlay_raw = document.getElementById("raw-selecter");
 let overlay_socials = document.getElementById("socials-selecter");
 let overlay_resources = document.getElementById("resources-selecter");
+let checkbox_search_clear = document.getElementById("clear-selecter");
 
 let community_value = community.value;
 let tokenId_value = overlay_tokenId.checked;
@@ -144,7 +145,10 @@ function openDetailsWindow(){
 function search(searchQuery){
     removeElementsByClass('search-result-item');
     //deletes old search results
-    $('.div-overlay-search-color').css( 'display', 'none');
+    if (checkbox_search_clear.checked == true) {
+        $('.div-overlay-search-color').css( 'display', 'none');
+        console.log('result cleared')
+    }
 
     let request = new XMLHttpRequest();
     let url;
