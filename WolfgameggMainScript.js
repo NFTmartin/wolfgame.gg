@@ -37,6 +37,7 @@ i_agree_button.addEventListener("click", function(){
     setCookie('hideWelcome', false, 1)
    }
    welcome_screen.style.display = 'block';
+   pz.resume();
 });
 
 // detect change in cummunity selection
@@ -136,10 +137,9 @@ function checkCookies(){
     if (getCookie('hideWelcome') === "false" || getCookie('hideWelcome') === ""){
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
-    } /*else if ( getCookie('hideWelcome') === "") {
-        welcome_screen.style.display = 'flex';
-        console.log('welcome set to flex')
-    }*/
+    } else {
+        pz.resume();
+    }
 }
 
 //site functions
@@ -436,6 +436,7 @@ function getLandData(communityNumber) {
 }
 
 (function() {
+    pz.pause();
     checkCookies();
     setNewUrl ();
     getLandData(community_value);  
