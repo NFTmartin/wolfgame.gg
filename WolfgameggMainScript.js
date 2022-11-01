@@ -436,7 +436,6 @@ function getLandData(communityNumber) {
 }
 
 (function() {
-    pz.pause();
     checkCookies();
     setNewUrl ();
     getLandData(community_value);  
@@ -461,6 +460,7 @@ let pz = panzoom(draggableMap,{
     initialY: 90,
     initialZoom: 0.075,
 });
+pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
