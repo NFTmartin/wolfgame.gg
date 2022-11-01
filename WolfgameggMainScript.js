@@ -136,7 +136,7 @@ function checkCookies(){
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
     } else {
-        pz.resume();
+        //pz.resume();
     }
 }
 
@@ -458,7 +458,7 @@ let pz = panzoom(draggableMap,{
     initialY: 90,
     initialZoom: 0.075,
 });
-pz.pause();
+//pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
