@@ -448,9 +448,9 @@ let draggableMap = document.getElementById('scene')
 
 // and forward it it to panzoom.
 let pz = panzoom(draggableMap,{
-    zoomSpeed: 0.065, // 6.5% per mouse wheel event
-    maxZoom: 1,
-    minZoom: 0.1
+    zoomSpeed: 0.12, // 6.5% per mouse wheel event
+    maxZoom: 1.2,
+    minZoom: 0.05
 });
 
 function pausePan(e) {
