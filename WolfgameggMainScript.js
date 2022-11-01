@@ -316,6 +316,9 @@ function search(searchQuery){
 function getLandData(communityNumber) {
     removeElementsByClass('div-grid-item-wg-data');
     removeElementsByClass('div-grid-item-wg-color');
+    // set community number header above map
+    const community_text = document.getElementById('community-text')
+    community_text.textContent = 'Community:'+communityNumber;
 
     let request = new XMLHttpRequest();
     let url = xanoUrl.toString() + '/wg_land' + '?com=' + communityNumber;
