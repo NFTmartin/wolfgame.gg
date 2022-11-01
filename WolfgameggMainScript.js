@@ -452,7 +452,7 @@ let pz = panzoom(draggableMap,{
     zoomSpeed: 0.2, // 6.5% per mouse wheel event
     maxZoom: 1.1,
     minZoom: 0.075,
-    smoothScroll: false,
+    smoothScroll: true,
     zoomDoubleClickSpeed: 1, 
     initialX: 135,
     initialY: 90,
