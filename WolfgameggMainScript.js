@@ -464,7 +464,8 @@ let pz = panzoom(draggableMap,{
         right: 0,
         bottom: 0,
         left: 0,
-      }
+    },
+    boundsDisabledForZoom: true,
 });
 //pz.pause();
 
