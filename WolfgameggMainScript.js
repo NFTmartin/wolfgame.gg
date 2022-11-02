@@ -459,15 +459,9 @@ let pz = panzoom(draggableMap,{
     initialZoom: 0.075,
     bounds: true,
     boundsPadding: 0.15,
-    //bound:'outer',
-    /*bounds: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-    }*/
+    
 });
-//pz.pause();
+pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
