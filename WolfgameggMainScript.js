@@ -457,6 +457,8 @@ let pz = panzoom(draggableMap,{
     initialX: 135,
     initialY: 90,
     initialZoom: 0.075,
+    bounds: true,
+    boundsPadding: 0.1
 });
 //pz.pause();
 
