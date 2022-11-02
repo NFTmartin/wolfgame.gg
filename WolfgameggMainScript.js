@@ -456,7 +456,7 @@ let pz = panzoom(draggableMap,{
     zoomDoubleClickSpeed: 1, 
     initialX: 220,
     initialY: 172,
-    initialZoom: 0.075,
+    initialZoom: 0.75,
     //bounds: true,
     //boundsPadding: 0.15,
     
