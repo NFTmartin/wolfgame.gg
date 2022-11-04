@@ -382,7 +382,7 @@ function getLandData(communityNumber) {
                 
                 // background img
                 const img = imgcard.getElementsByTagName('IMG')[0]
-                img.src = landID.editedUrlWebp; // using Xano's template engine to re-size the pictures down and make them a box
+                img.src = landID.png550x550x10qUrl; // using Xano's template engine to re-size the pictures down and make them a box
                 
                 // overlay-data
                 const tokenIdText = datacard.querySelector("div.div-overlay-data > div.text-token-id")
