@@ -374,8 +374,8 @@ function getLandData(communityNumber) {
             data.forEach(landID => {
                 
                 // For each restaurant, create a div called card and style with the "Sample Card" class
-                const imgstyle = document.getElementById('div-grid-item-wg_data-sample')
-                const datastyle = document.getElementById('div-grid-item-wg_color-sample')
+                const imgstyle = document.getElementById('data_sample')
+                const datastyle = document.getElementById('color_sample')
                 // Copy the card and it's style
                 const imgcard = imgstyle.cloneNode(true)
                 const datacard = datastyle.cloneNode(true)
