@@ -439,9 +439,9 @@ function getLandData(communityNumber) {
 }
 
 (function() {
-    checkCookies();
     setNewUrl ();
-    getLandData(community_value);  
+    getLandData(community_value); 
+    checkCookies(); 
 
 })();
 
