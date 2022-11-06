@@ -389,13 +389,13 @@ function getLandData(communityNumber) {
                 tokenIdText.textContent = 'TOKENID #'+landID.tokenId;
 
                 const ensNameText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-ens-holder")
-                //ensNameText.textContent = landID.__owners[0].ENSname;
+                ensNameText.textContent = landID.__owners[0].ENSname;
 
                 const rawAddresText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
-                //rawAddresText.textContent = landID.__owners[0].Ethereum_address;
+                rawAddresText.textContent = landID.__owners[0].Ethereum_address;
 
                 const socialsText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
-                //rawAddresText.textContent = landID.__owners[0].Ethereum_address;
+                rawAddresText.textContent = landID.__owners[0].Ethereum_address;
 
 
                 // overlay-color
