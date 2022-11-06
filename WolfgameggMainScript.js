@@ -440,7 +440,7 @@ function getLandData(communityNumber) {
                 
                 // background img
                 const img = imgcard.getElementsByTagName('IMG')[0]
-                if (isMobile() === true){
+                if (isMobile() == true || isMobile() == undefined){
                     img.src = landID.png275x275x10qUrl;
                     console.log(isMobile());
                     console.log(isMobile().valueOf);
