@@ -432,9 +432,11 @@ function getLandData(communityNumber) {
                 // background img
                 const img = imgcard.getElementsByTagName('IMG')[0]
                 if (deviceType === 'mobile' || deviceType === 'tablet'){
-                    img.src = landID.png550x550x10qUrl; // using Xano's template engine to re-size the pictures down and make them a box
+                    img.src = landID.png550x550x10qUrl;
+                    console.log(deviceType);
                 } else {
-                    img.src = landID.png275x275x10qUrl; // using Xano's template engine to re-size the pictures down and make them a box
+                    img.src = landID.png275x275x10qUrl;
+                    console.log(deviceType);
                 }
                 
                 // overlay-data
