@@ -431,12 +431,12 @@ function getLandData(communityNumber) {
                 
                 // background img
                 const img = imgcard.getElementsByTagName('IMG')[0]
-                if (deviceType === 'mobile' || deviceType === 'tablet'){
+                if (deviceType.value === 'mobile' || deviceType.value === 'tablet'){
                     img.src = landID.png550x550x10qUrl;
-                    console.log(deviceType);
+                    console.log(deviceType.value);
                 } else {
                     img.src = landID.png275x275x10qUrl;
-                    console.log(deviceType);
+                    console.log(deviceType.value);
                 }
                 
                 // overlay-data
