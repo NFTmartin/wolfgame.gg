@@ -137,7 +137,7 @@ function checkCookies(){
         console.log('welcome set to flex')
     } else {
         console.log('pz needs to resume')
-        setTimeout(pz.resume(), 1000);
+        setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
     }
 }
