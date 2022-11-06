@@ -1,8 +1,41 @@
+/*//////////
+panzoom code
+//////////*/
+import "https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"
+
+let draggableMap = document.getElementById('scene')
+
+// and forward it it to panzoom.
+let pz = panzoom(draggableMap,{
+    zoomSpeed: 0.2, // 6.5% per mouse wheel event
+    maxZoom: 1.1,
+    minZoom: 0.075,
+    smoothScroll: false,
+    zoomDoubleClickSpeed: 1, 
+    initialX: 220,
+    initialY: 172,
+    initialZoom: 0.75,
+    //bounds: true,
+    //boundsPadding: 0.15,
+    
+});
+pz.pause();
+
+function pausePan(e) {
+e.preventDefault();
+pz.pause();
+}
+
+function resumePan(e) {
+e.preventDefault();
+pz.resume();
+}
+
 //////////////////////////////////////
 //Main Javascript code for WOLFGAME.gg
 //////////////////////////////////////
 
-import "https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"
+//import "https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"
 
 // Create a variable for the API endpoint. In this example, we're accessing Xano's API
 let xanoUrl = new URL('https://xtbc-tszb-uv6h.f2.xano.io/api:8LJ-JoNQ');
@@ -445,36 +478,3 @@ function getLandData(communityNumber) {
     checkCookies(); 
 
 })();
-
-/*//////////
-panzoom code
-//////////*/
-//import "https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"
-
-let draggableMap = document.getElementById('scene')
-
-// and forward it it to panzoom.
-let pz = panzoom(draggableMap,{
-    zoomSpeed: 0.2, // 6.5% per mouse wheel event
-    maxZoom: 1.1,
-    minZoom: 0.075,
-    smoothScroll: false,
-    zoomDoubleClickSpeed: 1, 
-    initialX: 220,
-    initialY: 172,
-    initialZoom: 0.75,
-    //bounds: true,
-    //boundsPadding: 0.15,
-    
-});
-pz.pause();
-
-function pausePan(e) {
-e.preventDefault();
-pz.pause();
-}
-
-function resumePan(e) {
-e.preventDefault();
-pz.resume();
-}
