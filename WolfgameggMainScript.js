@@ -136,7 +136,8 @@ function checkCookies(){
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
     } else {
-        //pz.resume();
+        console.log('pz needs to resume')
+        pz.resume();
     }
 }
 
