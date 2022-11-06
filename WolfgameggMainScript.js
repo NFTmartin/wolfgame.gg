@@ -35,7 +35,21 @@ pz.resume();
 //Main Javascript code for WOLFGAME.gg
 //////////////////////////////////////
 
-//import "https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"
+// define the type of viewing device
+let deviceType = () => {
+    const ua = navigator.userAgent;
+    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
+      return "tablet";
+    }
+    if (
+      /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
+        ua
+      )
+    ) {
+      return "mobile";
+    }
+    return "desktop";
+};
 
 // Create a variable for the API endpoint. In this example, we're accessing Xano's API
 let xanoUrl = new URL('https://xtbc-tszb-uv6h.f2.xano.io/api:8LJ-JoNQ');
@@ -417,7 +431,11 @@ function getLandData(communityNumber) {
                 
                 // background img
                 const img = imgcard.getElementsByTagName('IMG')[0]
-                img.src = landID.png550x550x10qUrl; // using Xano's template engine to re-size the pictures down and make them a box
+                if (deviceType === 'mobile' || deviceType === 'tablet'){
+                    img.src = landID.png550x550x10qUrl; // using Xano's template engine to re-size the pictures down and make them a box
+                } else {
+                    img.src = landID.png275x275x10qUrl; // using Xano's template engine to re-size the pictures down and make them a box
+                }
                 
                 // overlay-data
                 const tokenIdText = datacard.querySelector("div.div-overlay-data > div.text-token-id")
