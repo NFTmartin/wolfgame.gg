@@ -58,6 +58,7 @@ function isMobile() {
     })(navigator.userAgent||navigator.vendor||window.opera);
     return check;
 };
+let isMobileValue = isMobile;
 
 // Create a variable for the API endpoint. In this example, we're accessing Xano's API
 let xanoUrl = new URL('https://xtbc-tszb-uv6h.f2.xano.io/api:8LJ-JoNQ');
@@ -439,14 +440,14 @@ function getLandData(communityNumber) {
                 
                 // background img
                 const img = imgcard.getElementsByTagName('IMG')[0]
-                if (isMobile === true){
+                if (isMobile() === true){
                     img.src = landID.png275x275x10qUrl;
-                    console.log(isMobile);
-                    console.log(isMobile.value);
+                    console.log(isMobile());
+                    console.log(isMobile().valueOf);
                 } else {
                     img.src = landID.png550x550x10qUrl;
-                    console.log(isMobile);
-                    console.log(isMobile.value);
+                    console.log(isMobile());
+                    console.log(isMobile().valueOf);
                 }
                 
                 // overlay-data
