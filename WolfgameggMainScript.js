@@ -388,32 +388,36 @@ function getLandData(communityNumber) {
                 const tokenIdText = datacard.querySelector("div.div-overlay-data > div.text-token-id")
                 tokenIdText.textContent = 'TOKENID #'+landID.tokenId;
 
-                const ensNameText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-ens-holder")
-                ensNameText.textContent = landID.__owners[0].ENSname;
+                if (landID.tokenExists === true){
+                    const ensNameText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-ens-holder")
+                    ensNameText.textContent = landID.__owners[0].ENSname;
 
-                const rawAddresText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
-                rawAddresText.textContent = landID.__owners[0].Ethereum_address;
+                    const rawAddresText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
+                    rawAddresText.textContent = landID.__owners[0].Ethereum_address;
 
-                const socialsText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
-                rawAddresText.textContent = landID.__owners[0].Ethereum_address;
+                    const socialsText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-raw-holder")
+                    rawAddresText.textContent = landID.__owners[0].Ethereum_address;
 
 
-                // overlay-color
-                const colorGreen = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-green")
-                colorGreen.style.backgroundColor = landID.greenColorValue;
+                    // overlay-color
+                    const colorGreen = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-green")
+                    colorGreen.style.backgroundColor = landID.greenColorValue;
 
-                const colorGrey = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-grey")
-                colorGrey.style.backgroundColor = landID.greyColorValue;
-                
-                const colorBlue = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-blue")
-                colorBlue.style.backgroundColor = landID.blueColorValue;
+                    const colorGrey = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-grey")
+                    colorGrey.style.backgroundColor = landID.greyColorValue;
+                    
+                    const colorBlue = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-blue")
+                    colorBlue.style.backgroundColor = landID.blueColorValue;
 
-                const colorBrown = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-brown")
-                colorBrown.style.backgroundColor = landID.brownColorValue;
+                    const colorBrown = datacard.querySelector("div.div-overlay-color > div.div-overlay-resources-color > div.div-overlay-resources-brown")
+                    colorBrown.style.backgroundColor = landID.brownColorValue;
 
-                const colorOwner = datacard.querySelector("div.div-overlay-color > div.div-overlay-owner-color")
-                colorOwner.style.backgroundColor = landID.__owners[0].Occupation_color;
-
+                    const colorOwner = datacard.querySelector("div.div-overlay-color > div.div-overlay-owner-color")
+                    colorOwner.style.backgroundColor = landID.__owners[0].Occupation_color;
+                } else {
+                    const ensNameText = datacard.querySelector("div.div-overlay-data > div.div-holder-text-wrapper > div.text-overlay-ens-holder")
+                    ensNameText.textContent = "This token doesn't exist on-chain!";
+                }
                 const colorSearch = datacard.querySelector("div.div-overlay-color > div.div-overlay-search-color")
                 colorSearch.setAttribute('id', 'search'+landID.tokenId)
                 colorSearch.style.backgroundColor = 'rgba(176, 29, 24, 0.9)'
@@ -461,7 +465,7 @@ let pz = panzoom(draggableMap,{
     //boundsPadding: 0.15,
     
 });
-//pz.pause();
+pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
