@@ -93,8 +93,10 @@ searchbox.addEventListener("input", function(){
 });
 
 searchbox.addEventListener('blur', (event) => {
-    removeElementsByClass('search-result-item');
-    removeElementsByClass('.search-result-item-no-result');
+    //removeElementsByClass('search-result-item');
+   //removeElementsByClass('.search-result-item-no-result');
+    $('.search-result-item').css( 'display', 'none');
+    $('.search-result-item-no-result').css( 'display', 'none');
 });
 
 //detect clear-search checked-status change
