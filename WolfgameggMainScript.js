@@ -95,11 +95,11 @@ searchbox.addEventListener("input", function(){
 searchbox.addEventListener('blur', (event) => {
     $('.search-result-item').css( 'display', 'none');
     $('.search-result-item-no-result').css( 'display', 'none');
-    pz.resume;
+    pz.resume();
 });
 searchbox.addEventListener('focus', (event) => {
     $('.search-result-item').css( 'display', 'flex');
-    pz.pause;
+    pz.pause();
 });
 
 //detect clear-search checked-status change
