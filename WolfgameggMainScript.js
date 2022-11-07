@@ -92,7 +92,7 @@ searchbox.addEventListener("input", function(){
     console.log('search'+searchbox.value)
 });
 
-searchbox.addEventListener('blur', setTimeout(() => {
+searchbox.addEventListener('blur', setTimeout(function() {
     $('.search-result-item').css( 'display', 'none');
     $('.search-result-item-no-result').css( 'display', 'none');
     pz.resume();
