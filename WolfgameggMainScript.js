@@ -19,7 +19,7 @@ let pz = panzoom(draggableMap,{
     //boundsPadding: 0.15,
     
 });
-//pz.pause();
+pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
