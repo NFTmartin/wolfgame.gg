@@ -35,6 +35,8 @@ pz.resume();
 //Main Javascript code for WOLFGAME.gg
 //////////////////////////////////////
 
+//test test
+
 // define the type of viewing device
 function isMobile() {
     var check = false;
