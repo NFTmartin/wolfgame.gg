@@ -105,7 +105,7 @@ searchbox.addEventListener('blur', function(){
         $('.search-result-item').css( 'display', 'none')
         $('.search-result-item-no-result').css( 'display', 'none')
         pz.resume()
-    }, 1000)
+    }, 100)
 });
 
 searchbox.addEventListener('focus', () => {
