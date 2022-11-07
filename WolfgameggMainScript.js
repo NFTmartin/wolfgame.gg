@@ -36,20 +36,6 @@ pz.resume();
 //////////////////////////////////////
 
 // define the type of viewing device
-let deviceType = () => {
-    const ua = navigator.userAgent;
-    if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {
-      return "tablet";
-    }
-    if (
-      /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(
-        ua
-      )
-    ) {
-      return "mobile";
-    }
-    return "desktop";
-};
 function isMobile() {
     var check = false;
     (function(a){
@@ -58,7 +44,6 @@ function isMobile() {
     })(navigator.userAgent||navigator.vendor||window.opera);
     return check;
 };
-let isMobileValue = isMobile;
 
 // Create a variable for the API endpoint. In this example, we're accessing Xano's API
 let xanoUrl = new URL('https://xtbc-tszb-uv6h.f2.xano.io/api:8LJ-JoNQ');
