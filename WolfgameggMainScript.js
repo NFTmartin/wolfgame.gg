@@ -93,16 +93,13 @@ searchbox.addEventListener("input", function(){
 });
 
 searchbox.addEventListener('blur', (event) => {
-    //removeElementsByClass('search-result-item');
-   //removeElementsByClass('.search-result-item-no-result');
     $('.search-result-item').css( 'display', 'none');
     $('.search-result-item-no-result').css( 'display', 'none');
+    pz.resume;
 });
 searchbox.addEventListener('focus', (event) => {
-    //removeElementsByClass('search-result-item');
-   //removeElementsByClass('.search-result-item-no-result');
     $('.search-result-item').css( 'display', 'flex');
-    //$('.search-result-item-no-result').css( 'display', 'flex');
+    pz.pause;
 });
 
 //detect clear-search checked-status change
