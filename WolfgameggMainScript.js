@@ -338,7 +338,7 @@ function search(searchQuery){
                     }); 
 
                     const img = resultcard.getElementsByTagName('IMG')[0]
-                    img.src = landID.editedUrlWebp;
+                    img.src = landID.png275x275x10qUrl;
     
                     const tokenIdText = resultcard.querySelector("div.search-result-text-wrapper > div.search-result-tokenid")
                     tokenIdText.textContent = 'TOKENID #'+landID.tokenId;
