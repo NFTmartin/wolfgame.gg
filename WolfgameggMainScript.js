@@ -92,6 +92,11 @@ searchbox.addEventListener("input", function(){
     console.log('search'+searchbox.value)
 });
 
+searchbox.addEventListener('blur', (event) => {
+    removeElementsByClass('search-result-item');
+    removeElementsByClass('.search-result-item-no-result');
+});
+
 //detect clear-search checked-status change
 checkbox_search_clear.addEventListener("click", function(){ 
     $('.div-overlay-search-color').css( 'display', 'none');
