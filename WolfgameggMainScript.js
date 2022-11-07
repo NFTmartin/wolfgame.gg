@@ -92,11 +92,15 @@ searchbox.addEventListener("input", function(){
     console.log('search'+searchbox.value)
 });
 
-searchbox.addEventListener('blur', setTimeout(function() {
+// executes when search box loses focus.
+function searchBoxBlur() {
     $('.search-result-item').css( 'display', 'none');
     $('.search-result-item-no-result').css( 'display', 'none');
     pz.resume();
-}, 10000));
+}
+// makes sure effect hapens after 1000ms
+searchbox.addEventListener('blur', setTimeout(searchBoxBlur, 1000))
+
 searchbox.addEventListener('focus', () => {
     $('.search-result-item').css( 'display', 'flex');
     pz.pause();
