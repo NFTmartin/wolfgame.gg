@@ -98,6 +98,12 @@ searchbox.addEventListener('blur', (event) => {
     $('.search-result-item').css( 'display', 'none');
     $('.search-result-item-no-result').css( 'display', 'none');
 });
+searchbox.addEventListener('focus', (event) => {
+    //removeElementsByClass('search-result-item');
+   //removeElementsByClass('.search-result-item-no-result');
+    $('.search-result-item').css( 'display', 'flex');
+    $('.search-result-item-no-result').css( 'display', 'flex');
+});
 
 //detect clear-search checked-status change
 checkbox_search_clear.addEventListener("click", function(){ 
