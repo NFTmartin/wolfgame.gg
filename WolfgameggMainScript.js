@@ -19,7 +19,7 @@ let pz = panzoom(draggableMap,{
     //boundsPadding: 0.15,
     
 });
-pz.pause();
+//pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
@@ -92,22 +92,16 @@ searchbox.addEventListener("input", function(){
     console.log('search'+searchbox.value)
 });
 
-// executes when search box loses focus.
-function searchBoxBlur() {
-    setTimeout(console.log('timeout'),1000)
-    $('.search-result-item').css( 'display', 'none')
-    $('.search-result-item-no-result').css( 'display', 'none')
-    pz.resume() 
-}
-// makes sure effect hapens after 1000ms
+// hides search results when searchbox is no longer in focus, makes sure effect hapens after 400ms and click is registered
 searchbox.addEventListener('blur', function(){
     setTimeout(function() {
         $('.search-result-item').css( 'display', 'none')
         $('.search-result-item-no-result').css( 'display', 'none')
         pz.resume()
-    }, 500)
+    }, 400)
 });
 
+// displays search result when search box is clicked again aka in focus again
 searchbox.addEventListener('focus', () => {
     $('.search-result-item').css( 'display', 'flex');
     pz.pause();
