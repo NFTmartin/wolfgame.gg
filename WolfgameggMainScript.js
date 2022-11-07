@@ -102,7 +102,7 @@ searchbox.addEventListener('focus', (event) => {
     //removeElementsByClass('search-result-item');
    //removeElementsByClass('.search-result-item-no-result');
     $('.search-result-item').css( 'display', 'flex');
-    $('.search-result-item-no-result').css( 'display', 'flex');
+    //$('.search-result-item-no-result').css( 'display', 'flex');
 });
 
 //detect clear-search checked-status change
