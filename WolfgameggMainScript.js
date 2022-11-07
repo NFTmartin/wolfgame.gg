@@ -92,12 +92,12 @@ searchbox.addEventListener("input", function(){
     console.log('search'+searchbox.value)
 });
 
-searchbox.addEventListener('blur', (event) => {
+searchbox.addEventListener('blur', setTimeout(() => {
     $('.search-result-item').css( 'display', 'none');
     $('.search-result-item-no-result').css( 'display', 'none');
     pz.resume();
-});
-searchbox.addEventListener('focus', (event) => {
+}, 10000));
+searchbox.addEventListener('focus', () => {
     $('.search-result-item').css( 'display', 'flex');
     pz.pause();
 });
