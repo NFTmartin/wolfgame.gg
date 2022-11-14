@@ -23,11 +23,6 @@ let pz = panzoom(draggableMap,{
         console.log(document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target)
         //document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target;
     },
-    onDoubleClick: function(e) {
-        // `e` - is current double click event.
-    
-        return false; // tells the library to not preventDefault, and not stop propagation
-    }
     
 });
 pz.pause();
@@ -430,7 +425,7 @@ function getLandData(communityNumber) {
 
                 clicked_id = landID.tokenId;
 
-                /* action when land is pressed
+                // action when land is pressed
                 imgcard.addEventListener('click', function() {
                     console.log(landID.tokenId)
                     //let cID = String(landID.tokenId);
@@ -447,7 +442,7 @@ function getLandData(communityNumber) {
                     clicked_id = landID.tokenId;
                     console.log(clicked_id);
                     setNewUrl ();
-                }); */
+                }); 
                 
                 // background img
                 const img = imgcard.getElementsByTagName('IMG')[0]
