@@ -30,7 +30,6 @@ let pz = panzoom(draggableMap,{
     }
     
 });
-pz.onTouch(e);
 pz.pause();
 
 function pausePan(e) {
