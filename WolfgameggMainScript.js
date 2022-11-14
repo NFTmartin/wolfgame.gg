@@ -18,7 +18,7 @@ let pz = panzoom(draggableMap,{
     //bounds: true,
     //boundsPadding: 0.15,
     onTouch: function(e) {
-        console.log(e)
+        console.log(e + 'clicked')
         //document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target;
     }
     
