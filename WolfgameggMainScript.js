@@ -19,11 +19,19 @@ let pz = panzoom(draggableMap,{
     //contain: 'inside',
     //bounds: true,
     //boundsPadding: 0.15,
-    onTouch: function(e) {
-        console.log(document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target)
-        //document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target;
-    },
+    /*onTouch: function(e) {
+        // `e` - is current touch event.
     
+        return false; // tells the library to not preventDefault.
+    }*/
+    
+});
+pz.on('panstart', function(e) {
+    console.log('Fired when pan is just started ', e);
+    // Note: e === instance.
+});
+pz.on('panend', function(e) {
+    console.log('Fired when pan ended', e);
 });
 pz.pause();
 
