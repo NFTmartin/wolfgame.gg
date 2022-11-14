@@ -17,6 +17,9 @@ let pz = panzoom(draggableMap,{
     initialZoom: 0.75,
     //bounds: true,
     //boundsPadding: 0.15,
+    onTouch: function(e) {
+        document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target;
+    }
     
 });
 pz.pause();
