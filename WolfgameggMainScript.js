@@ -16,15 +16,21 @@ let pz = panzoom(draggableMap,{
     initialY: 172,
     initialZoom: 0.75,
     //excludeClass: 'custom-excluded-class'
-    contain: 'inside',
+    //contain: 'inside',
     //bounds: true,
     //boundsPadding: 0.15,
     onTouch: function(e) {
-        console.log(e + 'clicked')
+        console.log(document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target)
         //document.getElementById('log').innerText = 'Clicked! Event target is: ' + e.target;
+    },
+    onDoubleClick: function(e) {
+        // `e` - is current double click event.
+    
+        return false; // tells the library to not preventDefault, and not stop propagation
     }
     
 });
+pz.onTouch(e);
 pz.pause();
 
 function pausePan(e) {
