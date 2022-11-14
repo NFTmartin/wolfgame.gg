@@ -15,6 +15,8 @@ let pz = panzoom(draggableMap,{
     initialX: 220,
     initialY: 172,
     initialZoom: 0.75,
+    //excludeClass: 'custom-excluded-class'
+    //contain: 'inside'
     //bounds: true,
     //boundsPadding: 0.15,
     onTouch: function(e) {
@@ -23,7 +25,7 @@ let pz = panzoom(draggableMap,{
     }
     
 });
-pz.pause();
+//pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
