@@ -434,17 +434,17 @@ function getLandData(communityNumber) {
                 clicked_id = landID.tokenId;
 
                 // action when land is pressed
-                imgcard.addEventListener('click', function() {
+                /*imgcard.addEventListener('click', function() {
                     console.log('imagecard:'+landID.tokenId+'clicked')
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
                     //console.log(clicked_id);
                     setNewUrl ();
-                });  
+                });  */
                 
                 datacard.addEventListener('mousedown', function() {
-                    console.log('datacard:'+landID.tokenId+'mousedown')
+                    setTimeout(console.log('datacard:'+landID.tokenId+'mousedown'), 10);
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
