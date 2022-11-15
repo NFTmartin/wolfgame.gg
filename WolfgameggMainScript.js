@@ -15,6 +15,7 @@ let pz = panzoom(draggableMap,{
     initialX: 220,
     initialY: 172,
     initialZoom: 0.75,
+    excludeClass: 'welcome-screen'
     //contain: 'inside',
     //bounds: true,
     //boundsPadding: 0.15,
@@ -89,7 +90,7 @@ i_agree_button.addEventListener("click", function(){
     setCookie('hideWelcome', false, 1)
    }
    welcome_screen.style.display = 'block';
-   pz.resume();
+   //pz.resume();
 });
 
 // detect change in cummunity selection
