@@ -439,7 +439,7 @@ function getLandData(communityNumber) {
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
-                    console.log(clicked_id);
+                    //console.log(clicked_id);
                     setNewUrl ();
                 });  
                 
@@ -448,7 +448,7 @@ function getLandData(communityNumber) {
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
-                    console.log(clicked_id);
+                    //console.log(clicked_id);
                     setNewUrl ();
                 }); 
                 
