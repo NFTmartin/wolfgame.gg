@@ -15,7 +15,7 @@ let pz = panzoom(draggableMap,{
     initialX: 220,
     initialY: 172,
     initialZoom: 0.75,
-    //excludeClass: 'custom-excluded-class'
+    excludeClass: 'welcome-screen'
     //contain: 'inside',
     //bounds: true,
     //boundsPadding: 0.15,
