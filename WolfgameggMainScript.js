@@ -33,7 +33,7 @@ pz.on('panstart', function(e) {
 pz.on('panend', function(e) {
     console.log('Fired when pan ended', e);
 });
-pz.pause();
+//pz.pause();
 
 function pausePan(e) {
 e.preventDefault();
@@ -207,7 +207,7 @@ function checkCookies(){
         console.log('welcome set to flex')
     } else {
         console.log('pz needs to resume')
-        setTimeout(pz.resume(), 10000);
+        //setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
     }
 }
