@@ -90,7 +90,7 @@ i_agree_button.addEventListener("click", function(){
     setCookie('hideWelcome', false, 1)
    }
    welcome_screen.style.display = 'block';
-   //pz.resume();
+   pz.resume();
 });
 
 // detect change in cummunity selection
@@ -207,7 +207,7 @@ function checkCookies(){
         console.log('welcome set to flex')
     } else {
         console.log('pz needs to resume')
-        //setTimeout(pz.resume(), 10000);
+        setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
     }
 }
@@ -435,7 +435,7 @@ function getLandData(communityNumber) {
 
                 // action when land is pressed
                 imgcard.addEventListener('click', function() {
-                    console.log(landID.tokenId)
+                    console.log('imagecard:'+landID.tokenId+'clicked')
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
@@ -443,8 +443,8 @@ function getLandData(communityNumber) {
                     setNewUrl ();
                 });  
                 
-                datacard.addEventListener('click', function() {
-                    //console.log(landID.tokenId)
+                datacard.addEventListener('mousedown', function() {
+                    console.log('datacard:'+landID.tokenId+'mousedown')
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
