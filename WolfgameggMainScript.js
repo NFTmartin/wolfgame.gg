@@ -26,7 +26,8 @@ let pz = panzoom(draggableMap,{
         return false; // tells the library to not preventDefault.
     }*/
     
-});
+    
+}).pause();
 
 pz.on('panstart', function(e) {
     isPanning = true;
@@ -39,7 +40,7 @@ pz.on('panend', function(e) {
     }, 100);
 });
 
-pz.pause()
+//pz.pause()
 
 function pausePan(e) {
 //e.preventDefault();
@@ -51,7 +52,7 @@ function resumePan(e) {
 pz.resume();
 }
 
-pausePan()
+//pausePan()
 
 //////////////////////////////////////
 //Main Javascript code for WOLFGAME.gg
