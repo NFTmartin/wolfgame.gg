@@ -39,7 +39,7 @@ pz.on('panend', function(e) {
         console.log('Fired when pan ended', e);
     }, 100);
 });
-pz.pause();
+
 //pz.pause()
 
 function pausePan(e) {
@@ -532,6 +532,7 @@ function getLandData(communityNumber) {
 (function() {
     setNewUrl ();
     getLandData(community_value); 
+    pz.pause();
     checkCookies(); 
 
 })();
