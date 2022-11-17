@@ -28,12 +28,12 @@ let pz = panzoom(draggableMap,{
     
 });
 pz.on('panstart', function(e) {
-    let isPanning = true;
+    isPanning = true;
     console.log('Fired when pan is just started ', e);
     // Note: e === instance.
 });
 pz.on('panend', function(e) {
-    let isPanning = false;
+    isPanning = false;
     console.log('Fired when pan ended', e);
 });
 //pz.pause();
