@@ -204,7 +204,7 @@ function getCookie(cname) {
 function checkCookies(){
     console.log('check cookies started')
 
-    if (getCookie('hideWelcome') === "false" || getCookie('hideWelcome') === ""){
+    if (getCookie('hideWelcome') === "false" || getCookie('hideWelcome') === null){
         pausePan()
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
