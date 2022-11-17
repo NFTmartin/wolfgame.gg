@@ -37,7 +37,6 @@ pz.on('panend', function(e) {
         console.log('Fired when pan ended', e);
     }, 100);
 });
-//pz.pause();
 
 function pausePan(e) {
 //e.preventDefault();
@@ -48,6 +47,8 @@ function resumePan(e) {
 //e.preventDefault();
 pz.resume();
 }
+
+pausePan()
 
 //////////////////////////////////////
 //Main Javascript code for WOLFGAME.gg
