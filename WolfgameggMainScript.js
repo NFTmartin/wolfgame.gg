@@ -40,12 +40,12 @@ pz.on('panend', function(e) {
 //pz.pause();
 
 function pausePan(e) {
-e.preventDefault();
+//e.preventDefault();
 pz.pause();
 }
 
 function resumePan(e) {
-e.preventDefault();
+//e.preventDefault();
 pz.resume();
 }
 
@@ -205,11 +205,11 @@ function checkCookies(){
     console.log('check cookies started')
 
     if (getCookie('hideWelcome') === "false" || getCookie('hideWelcome') === ""){
-        pausePan(pz)
+        pausePan()
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
     } else {
-        resumePan(pz);
+        resumePan();
         //setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
     }
