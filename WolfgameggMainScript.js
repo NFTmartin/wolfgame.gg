@@ -446,7 +446,7 @@ function getLandData(communityNumber) {
                 datacard.addEventListener('mousedown', function() {
                     setTimeout(() => {
                         console.log('datacard:'+landID.tokenId+'mousedown');
-                    }, 1500);
+                    }, 150);
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
