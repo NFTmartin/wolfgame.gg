@@ -205,11 +205,11 @@ function checkCookies(){
     console.log('check cookies started')
 
     if (getCookie('hideWelcome') === "false" || getCookie('hideWelcome') === ""){
-        pausePan()
+        pausePan(pz)
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
     } else {
-        resumePan();
+        resumePan(pz);
         //setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
     }
