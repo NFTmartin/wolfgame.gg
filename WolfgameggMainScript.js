@@ -33,8 +33,10 @@ pz.on('panstart', function(e) {
     // Note: e === instance.
 });
 pz.on('panend', function(e) {
-    isPanning = false;
-    console.log('Fired when pan ended', e);
+    setTimeout(() => {
+        isPanning = false;
+        console.log('Fired when pan ended', e);
+    }, 100);
 });
 //pz.pause();
 
@@ -446,13 +448,13 @@ function getLandData(communityNumber) {
                     setNewUrl ();
                 });  */
                 
-                datacard.addEventListener('mousedown', function() {
-                    setTimeout(() => {
+                datacard.addEventListener('mouseup', function() {
+                    //setTimeout(() => {
                         if (isPanning === false){
                             console.log('data for land:'+landID.tokenId+'will be shown');
                         } 
                         console.log('datacard:'+landID.tokenId+'mousedown');
-                    }, 150);
+                    //}, 150);
                     //let cID = String(landID.tokenId);
                     //console.log(cID);
                     clicked_id = landID.tokenId;
