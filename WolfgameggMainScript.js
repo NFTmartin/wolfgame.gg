@@ -204,14 +204,15 @@ function getCookie(cname) {
 function checkCookies(){
     console.log('check cookies started')
 
-    if (getCookie('hideWelcome') === "false" || getCookie('hideWelcome') === null){
-        pausePan()
-        welcome_screen.style.display = 'flex';
-        console.log('welcome set to flex')
-    } else {
+    if (getCookie('hideWelcome') === "true" /*|| getCookie('hideWelcome') === null*/){
         resumePan();
         //setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
+    } else {
+        pausePan()
+        welcome_screen.style.display = 'flex';
+        console.log('welcome set to flex')
+        
     }
 }
 
