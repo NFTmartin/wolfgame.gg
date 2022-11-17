@@ -16,7 +16,7 @@ let pz = panzoom(draggableMap,{
     initialX: 220,
     initialY: 172,
     initialZoom: 0.75,
-    excludeClass: 'welcome-screen'
+    //excludeClass: 'welcome-screen'
     //contain: 'inside',
     //bounds: true,
     //boundsPadding: 0.15,
@@ -30,7 +30,6 @@ let pz = panzoom(draggableMap,{
 pz.on('panstart', function(e) {
     isPanning = true;
     console.log('Fired when pan is just started ', e);
-    // Note: e === instance.
 });
 pz.on('panend', function(e) {
     setTimeout(() => {
@@ -90,12 +89,11 @@ i_agree_button.addEventListener("click", function(){
     //sets cookie to hide welcome screen in the future
    if (dont_bother_check.checked === true) {
     setCookie('hideWelcome', true, 1)
-    console.log(getCookie('hideWelcome'))
    } else {
     setCookie('hideWelcome', false, 1)
    }
    welcome_screen.style.display = 'block';
-   pz.resume();
+   resumePan()
 });
 
 // detect change in cummunity selection
@@ -205,14 +203,14 @@ function getCookie(cname) {
 //checking stored cookies on page load
 function checkCookies(){
     console.log('check cookies started')
-    // - hide welcome
-    console.log(getCookie('hideWelcome'))
+
     if (getCookie('hideWelcome') === "false" || getCookie('hideWelcome') === ""){
+        pausePan()
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
     } else {
-        console.log('pz needs to resume')
-        setTimeout(pz.resume(), 10000);
+        resumePan();
+        //setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
     }
 }
