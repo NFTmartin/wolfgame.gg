@@ -27,7 +27,7 @@ let pz = panzoom(draggableMap,{
     }*/
     
     
-}).pause();
+});
 
 pz.on('panstart', function(e) {
     isPanning = true;
@@ -39,7 +39,7 @@ pz.on('panend', function(e) {
         console.log('Fired when pan ended', e);
     }, 100);
 });
-
+pz.pause();
 //pz.pause()
 
 function pausePan(e) {
