@@ -4,6 +4,7 @@ panzoom code
 import "https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js"
 
 let draggableMap = document.getElementById('scene')
+let isPanning = false
 
 // and forward it it to panzoom.
 let pz = panzoom(draggableMap,{
@@ -27,10 +28,12 @@ let pz = panzoom(draggableMap,{
     
 });
 pz.on('panstart', function(e) {
+    let isPanning = true;
     console.log('Fired when pan is just started ', e);
     // Note: e === instance.
 });
 pz.on('panend', function(e) {
+    let isPanning = false;
     console.log('Fired when pan ended', e);
 });
 //pz.pause();
@@ -445,6 +448,9 @@ function getLandData(communityNumber) {
                 
                 datacard.addEventListener('mousedown', function() {
                     setTimeout(() => {
+                        if (isPanning === false){
+                            console.log('data for land:'+landID.tokenId+'will be shown');
+                        } 
                         console.log('datacard:'+landID.tokenId+'mousedown');
                     }, 150);
                     //let cID = String(landID.tokenId);
