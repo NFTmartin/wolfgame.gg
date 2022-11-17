@@ -40,8 +40,6 @@ pz.on('panend', function(e) {
     }, 100);
 });
 
-//pz.pause()
-
 function pausePan(e) {
 //e.preventDefault();
 pz.pause();
@@ -52,7 +50,7 @@ function resumePan(e) {
 pz.resume();
 }
 
-//pausePan()
+//pz.pause()
 
 //////////////////////////////////////
 //Main Javascript code for WOLFGAME.gg
@@ -115,6 +113,7 @@ searchbox.addEventListener("input", function(){
 });
 
 // hides search results when searchbox is no longer in focus, makes sure effect hapens after 400ms and click is registered
+/* 2 FUNCTIONS BELOW CAUSE PAN TO RESUME TOO EARLY WHEN WELCOMESCREEN IS ACTIVE!!
 searchbox.addEventListener('blur', function(){
     setTimeout(function() {
         $('.search-result-item').css( 'display', 'none')
@@ -128,6 +127,7 @@ searchbox.addEventListener('focus', () => {
     $('.search-result-item').css( 'display', 'flex');
     pz.pause();
 });
+*/
 
 //detect clear-search checked-status change
 checkbox_search_clear.addEventListener("click", function(){ 
@@ -214,7 +214,7 @@ function checkCookies(){
         //setTimeout(pz.resume(), 10000);
         console.log('pz is resumed')
     } else {
-        pausePan()
+        pausePan();
         welcome_screen.style.display = 'flex';
         console.log('welcome set to flex')
         
@@ -532,7 +532,7 @@ function getLandData(communityNumber) {
 (function() {
     setNewUrl ();
     getLandData(community_value); 
-    pz.pause();
+    //pz.pause();
     checkCookies(); 
 
 })();
